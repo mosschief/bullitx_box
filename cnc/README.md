@@ -95,7 +95,7 @@ which the bolt holes and gaps absorb.
 | Front and back panels | Bolted to the frame by the outside face, so they grow into the box. The front and back links bolt to that inside face. | The front and back link bolt holes in the **side panel** move with the link: front one 1.9 mm back and 0.5 mm up (the front panel leans 15°), back one 2.0 mm forward |
 | Floor | Sits on the cross beams and grows upward, eating Vermoot's 3 mm gap under the front and back panels (down to 0.2 mm at 12.7 mm). | **Bottom edge of the front and back panels trimmed 2 mm** to put the gap back |
 | Bottom links | Peg into the frame and bolt to the side panel's inside face | None |
-| Printed links | None of them change | Print as before: 2 front, 2 back, 6 bottom |
+| Printed links | None of them change | Print as before: 2 front, 2 back, 4 bottom |
 
 Other effects to know about:
 
