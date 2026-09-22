@@ -16,8 +16,9 @@ Usage:
 """
 import argparse, math, os, ezdxf
 
-# Relief cut in the floor edge that clears a bottom-link bracket, as offsets from
-# the bracket centre: (dx, y, bulge).  Taken verbatim from Vermoot's fond.dxf.
+# Relief cut in the floor edge at a bottom-link station, as offsets from the socket
+# centre: (dx, y, bulge).  Taken verbatim from Vermoot's fond.dxf.  It clears both the
+# frame's 18 mm accessory socket and the inboard part of the link that plugs into it.
 RELIEF = [(+26.3186, 197.0, 0.41421356), (+16.0, 186.68144154, -1.0),
           (-16.0, 186.68144154, 0.41421356), (-26.3185, 197.0, 0.0)]
 
@@ -49,7 +50,7 @@ def side_panel(src, out, ext, cut, extra_link_x):
         if c.dxf.center.x > cut:                       # front-link bolt follows the front
             c.dxf.center = (c.dxf.center.x + ext, c.dxf.center.y, c.dxf.center.z)
     if extra_link_x:
-        msp.add_circle((extra_link_x, 59.0), 4.0)      # third bottom-link bolt
+        msp.add_circle((extra_link_x, 59.0), 4.0)      # extra bottom-link bolt
     doc.saveas(os.path.join(out, 'Side panel X.dxf'))
     print(f'  side panel: top rim arc {r_old:.0f} -> {r_new:.0f} mm radius')
 
@@ -87,8 +88,9 @@ if __name__ == '__main__':
     ap.add_argument('--extension', type=float, default=220.0)
     ap.add_argument('--cut', type=float, default=600.0,
                     help='x to split at; must land in the straight middle of both panels')
-    ap.add_argument('--extra-link-x', type=float, default=760.7,
-                    help='third bottom-link mount; 0 to leave it out')
+    ap.add_argument('--extra-link-x', type=float, default=0.0,
+                    help='extra bottom-link station, if your frame has a third socket '
+                         'pair; adds the panel bolt and the matching floor relief')
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     print(f'stretching by {a.extension} mm at x > {a.cut}')

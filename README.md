@@ -36,29 +36,40 @@ Cut these two from 10 mm plywood, same as the originals:
 
 **Unchanged — use Vermoot's originals as they are:** `front panel.dxf`,
 `back panel.dxf`, `front link.stl`, `back link.stl`, `bottom link.stl`. They are
-not copied into this repo; the design is Vermoot's and you already have it.
-
-Print **six** bottom links instead of four (see below), and the usual two each of
-the front and back links.
+not copied into this repo; the design is Vermoot's and you already have it. Print
+the same four bottom links, two back links and two front links as before.
 
 ## Bolt positions
 
 x is measured from the back of the cargo bay, the same datum both DXFs already use.
 
-**Side panel** — bottom-link bolts at x = 50.7, 510.7 and **760.7** (all at y = 59),
-back-link bolt at 50.7 / 303, front-link bolt at **983.1** / 200.9.
-
-The bolt at 760.7 is the one thing here that is not just Vermoot's design moved.
-The original panel hangs off two bottom links 460 mm apart plus the front link;
-stretched, that would leave a 472 mm unsupported run of 10 mm ply along the
-bottom edge. A third bottom link at 760.7 brings it back to 250 mm, uses the same
-printed part, and clears the transverses at 712 and 932. The floor has a matching
-relief cut for it. If you would rather not, re-run the script with
-`--extra-link-x 0` and you get the two-link panel.
+**Side panel** — bottom-link bolts at x = 50.7 and 510.7 (both at y = 59),
+back-link bolt at 50.7 / 303, front-link bolt at **983.1** / 200.9. Only the
+front-link bolt moves; the other three are Vermoot's, untouched.
 
 **Floor** — bolt rows at x = 212.2, 462, 710 and **930**, three bolts per row at
 y = 0 and +/- 150. The first three rows are Vermoot's, unchanged; 930 is the new
-fourth transverse.
+fourth transverse. The two pairs of semicircular reliefs in the floor edge are
+Vermoot's too, and stay where they are (see below).
+
+## How the box hangs on the frame
+
+![frame sockets](preview/frame-sockets.png)
+
+The Bullitt frame has two cross tubes inside the cargo bay, at x = 50.8 and
+510.8, each with an 18 mm vertical socket near either end at y = +/- 186.7.
+**Vermoot's bottom link is a solid 18 mm peg that plugs into one of those
+sockets** — it is not a clamp, and it will not mount anywhere else on the rail.
+That is also what the semicircular reliefs in the floor edge are for: they clear
+the socket and the foot of the link.
+
+So the side panels have exactly four mounting points along the bottom and they
+are fixed by the frame, not by the panel. A longer panel does not get more of
+them. If your Bullitt X turns out to have a third pair of sockets further
+forward, measure where they are and re-run the script with
+`--extra-link-x <that x>`; it will add the panel bolt and the matching floor
+relief. Otherwise the stretched panel runs unsupported along the bottom from
+510.7 to the front link, 472 mm, which is 233 mm more than the original.
 
 ## Check this one dimension before you cut
 
@@ -83,6 +94,7 @@ python3 tools/preview.py <that folder> preview/bullittx-panels.png
 ```
 
 `--extension` is the 220 mm, if you measure something different on your own bike.
+`--extra-link-x` adds a bottom-link station, if your frame has a third socket pair.
 
 ## Cutting it on a CNC
 
@@ -97,6 +109,17 @@ layouts as DXF and SVG, G-code, and the changes the thicker ply needs. Start wit
 should sit on the red transverse marks.
 
 ![fit check](preview/fit-check.png)
+
+## Child seat
+
+The Larry vs Harry foldable seat bolts to the frame, not to the box, so the
+220 mm stretch does not affect it and the Bullitt X gives it more room than a
+standard Bullitt. What is worth checking before you commit: the box already
+occupies all four of the frame sockets above, so if the seat wants the same
+sockets, the two compete. The seat's own manual has its struts bolting to
+"holes in the frame" from the outer side, and its lower bracket clamping the
+shoulder tubes, which reads like a different set of mounting points — but that
+is not confirmed. Dry-fit the seat before final assembly.
 
 ## Credit
 
