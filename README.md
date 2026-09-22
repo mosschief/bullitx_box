@@ -84,6 +84,12 @@ python3 tools/preview.py <that folder> preview/bullittx-panels.png
 
 `--extension` is the 220 mm, if you measure something different on your own bike.
 
+## Cutting it on a CNC
+
+`cnc/` has everything nested and ready to cut from 1/2" ply on a Shapeoko: the sheet
+layouts as DXF and SVG, G-code, and the changes the thicker ply needs. Start with
+[cnc/README.md](cnc/README.md).
+
 ## Fit check
 
 `preview/fit-check.png` is the new geometry drawn over the Bullitt X frame from
@@ -95,5 +101,6 @@ should sit on the red transverse marks.
 ## Credit
 
 The box design, the panel shapes and the three printed links are Vermoot's
-"Plateformes Bullitt". This repo only holds the two panels that had to change
-length, and the script that changes them.
+"Plateformes Bullitt". This repo holds the two panels that had to change length,
+the scripts that change them, and (under `cnc/`) all five panels adjusted and
+nested for 1/2" ply.
