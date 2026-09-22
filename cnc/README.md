@@ -103,6 +103,100 @@ Other effects to know about:
 - The box is 4 mm wider outside (sides grow outward). Inside, it is 4 mm shorter and 2 mm shallower.
 - The panels weigh about 20% more.
 
+## Which plywood
+
+1/2" is a good choice for the Bullitt X. It is 1.7 times as stiff as Vermoot's 10 mm,
+and the stretched side panels now span 472 mm along the bottom edge between the
+bottom link and the front link. The cost is weight: about 9.5 kg of panels in birch,
+against 8 kg at 10 mm.
+
+**What to ask for:** 12 mm Baltic birch with **exterior (WBP / phenolic) glue**, often
+sold as "exterior" or "FSF" grade. Plain Baltic birch is often made with interior glue,
+which delaminates once water gets into the edges.
+
+| Plywood | Verdict |
+|---|---|
+| Exterior-glue Baltic birch, 12 mm | **Best all-round.** Void-free, machines cleanly, and the edges look good sealed. |
+| Marine ply (BS 1088 okoume), 12 mm | Very weatherproof and about 25% lighter than birch. It costs more, and the soft face dents. |
+| Interior Baltic birch or hardwood ply | Fine only if the bike lives indoors and gets sealed well. |
+| CDX / sheathing | Avoid. It has voids, splinters on the CNC, and the edges soak up water. |
+
+Baltic birch usually comes in 5 x 5 ft sheets. Sheet A needs a 4 x 4 piece; the
+leftover strip is too narrow for the back panel (354 mm), so sheet B still needs a
+second piece unless the files are re-nested for a 5 x 5 sheet.
+
+**Weatherproofing.** The edges are what fail, so seal them before anything else, and
+do the faces and holes after that:
+
+1. Round the edges over (1 to 2 mm) and sand to 180 grit.
+2. Seal everything, edges and bolt holes included. Use either a penetrating epoxy sealer
+   followed by 2 or 3 coats of exterior spar varnish, or an exterior primer followed by
+   2 coats of exterior paint. Epoxy gives the best protection, and paint is the cheapest
+   and easiest to touch up.
+3. Leave the 3 mm gaps under the front and back panels open so water can drain.
+
+## Shopping list
+
+Vermoot's files don't list hardware, so these sizes come from his 3D assembly. Every
+bolt was traced through the parts it clamps, then 2 mm was added for the thicker ply.
+The 8 mm holes (side panels and printed links) take **M6**. The 10 mm holes (floor,
+front and back panels) take **M8**.
+
+**Check one thing before you buy.** The model shows the frame's mounting points as plain
+10 mm holes, so this list assumes bolts go all the way through with a nyloc nut behind.
+Try an M6 and an M8 bolt in one of the floor mounting points and one of the rear frame
+tabs on your bike. If they thread in, you don't need the nuts and the frame bolts can be
+much shorter.
+
+### Bolts
+Use stainless A2 (A4 if you ride near salt), in button-head hex or hex-head style.
+
+| Bolt | Qty | Where it goes | What it clamps |
+|---|---|---|---|
+| M6 x 30 | 8 | Side panels to the 8 printed links, 4 per side | 12 mm ply + 4 mm link |
+| M6 x 35 | 2 | Back links through the back panel into the rear frame tabs | 4.5 mm link + 12 mm ply + 4 mm tab |
+| M6 x 50 | 2 | Front links through the front panel and the front frame | 4.5 mm link + 12 mm ply + 20 mm tube |
+| M8 x 35 | 2 | Back panel, lower corners, to the rear frame tabs | 12 mm ply + 4 mm tab |
+| M8 x 50 | 13 | Floor to the 4 cross beams (12), front panel centre to the front frame (1) | 12 mm ply + 20 mm tube |
+| M8 x 65 | 2 | Floor tongue to the rear cross brace | 12 mm ply + 35 mm brace |
+
+### Nuts and washers
+
+| Part | Qty |
+|---|---|
+| M6 nyloc nut | 12 |
+| M8 nyloc nut | 17 |
+| M6 washer, large OD ("fender", about 18 mm) for the wood side | 8 |
+| M6 washer, standard, for the link or frame side | 16 |
+| M8 washer, large OD (about 24 mm) for the wood side | 17 |
+| M8 washer, standard, for the frame side | 17 |
+
+Buy a few spares of each.
+
+### Printed links
+
+| Part | Qty |
+|---|---|
+| `bottom link.stl` | 4 |
+| `front link.stl` | 2 |
+| `back link.stl` | 2 |
+
+Every link is symmetric, so the same file works on both sides and nothing needs
+mirroring. All eight together are about 120 cm³ of plastic, or roughly 160 g of PETG
+printed solid, so **one 1 kg spool** is plenty.
+
+Use **PETG or ASA, not PLA**. PLA creeps under load and goes soft on a bike parked in
+the sun. For strength, print with 5 walls and 40% or more infill.
+
+### Wood and finish
+
+- 1 x 4 x 4 ft sheet of 12 mm exterior Baltic birch (sheet A)
+- 1 x piece at least 720 x 470 mm of the same (sheet B); a 2 x 4 ft piece covers it
+- Penetrating epoxy sealer plus exterior spar varnish, or exterior primer plus paint:
+  about 1 litre (1 quart) of each is enough for both sides and every edge
+- 180-grit sandpaper
+- 1/4" two-flute end mill (see Machine setup)
+
 ## Files
 
 | File | What it is |
