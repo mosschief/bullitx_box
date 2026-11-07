@@ -121,9 +121,115 @@ sockets, the two compete. The seat's own manual has its struts bolting to
 shoulder tubes, which reads like a different set of mounting points — but that
 is not confirmed. Dry-fit the seat before final assembly.
 
+## Rain hood
+
+![hood](preview/canopy-3d.png)
+
+A folding hood built the way the box is built: flat 1/2" (12 mm) ply parts, cut from the same stock as the box
+(see `cnc/`), joined by printed links. Three hoops pivot on a printed hub on each side, centred on the
+back-link bolt. Hoop 0 is locked by lugs on the hub and stands behind the kids'
+heads. Hoops 1 and 2 swing forward to make a near-flat roof, then one windscreen
+line down to the nose of the box. A separate apron zips to hoop 2 and
+press-studs along the outside of the panels.
+
+![side](preview/canopy-side.png)
+
+Each hoop is two ply **arms** lying flat against the outside of the panels, a
+ply **bow** across the top, and two printed **elbows**. The arm lengths are
+staggered (170 / 272 / 374 mm) so that, folded, each elbow sits clear of the
+hoop inside it. `tools/canopy_parts.py` checks every pair of parts for
+collisions, hood up and folded, and reports none.
+
+![assembly](canopy/canopy-assembly.png)
+
+### How it attaches to the box
+
+![mounting](canopy/canopy-mounting.png)
+
+The hood touches the box in only three ways, all on the outside of the side panels:
+
+- **Pivot:** the existing back-link hole, an 8 mm hole at (52.7, 303) in the
+  12 mm side panel (2 mm forward of Vermoot's 50.7, as `cnc/` moves it for the
+  thicker ply). A longer M6 replaces the back-link bolt and goes in from inside the box, through the back link and the panel, into a jam nut
+  captured in the hub. That nut holds the hub on for good. The knob on the
+  outer end only clamps the arms.
+- **One new 6.5 mm hole per side**, at (97.7, 303), for the M6 bolt that stops
+  the hub turning.
+- **Press studs** for the apron, 8 per side, 15 mm below the rim, from x = 235
+  (forward of arm 2 with the hood up) to 949. Use studs that screw or bolt into
+  the ply, with screws no longer than 8 mm, so nothing pokes through into the box.
+
+The hood sides hang from the arms, not the panel. The rear window can take two
+or three studs on the outside of the back panel. Nothing changes on the floor,
+the front panel, or the frame mounts.
+
+### Files
+
+- `canopy/canopy-ply.dxf`: 1/2" ply, about 1.5 x 0.7 m. Three bows, and
+  six arms (two each of three lengths). The pivot hole is 24.5 mm (a 25 mm
+  Forstner bit is fine by hand), and the bolt holes are 5.5 mm.
+- `canopy/print/`, as STL and STEP, in PETG or ASA (not PLA), 5 walls, 40 % infill:
+
+| Part | Qty | Print on |
+|---|---|---|
+| `hub-right`, `hub-left` | 1 each | flange |
+| `elbow` | 6 | its flat outer face (one 37 mm bridge, no supports) |
+| `knob` | 2 | the face without the nut pocket |
+| `hub-cap` | 2 | flat face |
+| `hub-washer` | 4 | flat |
+
+![printed](canopy/canopy-printed.png)
+
+### Hardware, per bike (stainless)
+
+| | Qty | For |
+|---|---|---|
+| M6 x 85 bolt | 2 | pivot: replaces the back link's M6 x 30, head inside the box; trim flush with the knob |
+| M6 thin (jam) nut, 3.2 mm | 2 | captive in the hub flange |
+| M6 nut | 2 | captive in the knob |
+| M6 x 20 bolt + dome nut | 2 | stops the hub turning |
+| M5 x 25 countersunk + nyloc | 12 | arm to elbow, countersunk on the arm's outer face |
+| M5 x 35 cap head + nyloc | 12 | bow leg to elbow |
+
+Drill one 6.5 mm hole in each side panel at x = 97.7, y = 303 (45 mm in front
+of the back-link bolt), after checking that it misses the back link inside.
+
+### Stack on each side, from the panel out
+
+hub flange, arm 0 (locked by the lugs), washer, arm 1, washer, arm 2, cap, knob.
+The sleeve is 0.6 mm shorter than the arms and washers, so the knob clamps the
+arms. Tighten it to hold the hood up, and loosen it to fold. With the hood up,
+the fabric sets the angles of hoops 1 and 2.
+
+### Before you cut or print
+
+- **Mock it up on the bike.** Check the hub (274 mm out from the centre line
+  over the knob, so 549 mm across) against the frame tubes at the back of the
+  bay, and check the back hoop against the bars and your knees at full lock.
+- **Check the pivot bolt length** on the bike: 4.5 mm link + 12 mm panel + 7 mm
+  flange + 39.4 mm arm stack + 5 mm cap + 14 mm knob is about 82 mm, so an M6 x 85
+  trimmed flush. Check that the head can go inside the box.
+- **Measure your ply.** The model uses 12 mm. The elbow slots are 13.0 mm
+  (`PLY_SLOT` in `canopy_parts.py`) so they take anything from 11.9 to 12.7 mm, and
+  the elbow bolts pull the ply tight. The arm stack grows with thicker ply; that only
+  adds clamp, which the knob handles.
+- **Print one hub and one elbow first** and check the fits on offcuts.
+
+### Rebuilding
+
+```
+pip install cadquery ezdxf matplotlib
+python3 tools/canopy_concept.py preview     # concept views
+python3 tools/canopy_parts.py canopy        # DXF, STL/STEP, collision check, renders
+python3 tools/canopy_mounting.py             # where it meets the side panel
+```
+
+Shared parameters (hoop positions, arm lengths, ring widths) are at the top of
+`canopy_concept.py`. Fits and hardware are at the top of `canopy_parts.py`.
+
 ## Credit
 
 The box design, the panel shapes and the three printed links are Vermoot's
 "Plateformes Bullitt". This repo holds the two panels that had to change length,
-the scripts that change them, and (under `cnc/`) all five panels adjusted and
-nested for 1/2" ply.
+the scripts that change them, (under `cnc/`) all five panels adjusted and
+nested for 1/2" ply, and the rain hood.
